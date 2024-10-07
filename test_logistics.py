@@ -6,7 +6,14 @@ import geopy
 
 
 def test_distance_between_two_points():
-    assert int(calculate_distance(get_coordinates("Chicago"), get_coordinates("Los Angeles"))) == 1745
+    assert (
+        int(
+            calculate_distance(
+                get_coordinates("Chicago"), get_coordinates("Los Angeles")
+            )
+        )
+        == 1745
+    )
 
 
 # build a test for travel_time
@@ -48,7 +55,6 @@ def test_distance(client):
     )
     assert response.status_code == 200
     assert response.json() == {"distance": 1745.7680630496661}
-
 
 
 # build a test the travel time between two cities by car for Chicago and Los Angeles, consider the speed is 60 miles per hour

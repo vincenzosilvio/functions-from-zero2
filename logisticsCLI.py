@@ -1,10 +1,8 @@
 from mylib.logistics import (
     calculate_distance,
-    total_distance,
-    cities,
     get_coordinates,
-    travel_time,
     print_cities,
+    travel_time,
 )
 import click
 
@@ -57,4 +55,3 @@ def travel(city1, city2, speed):
 # invoke the click group
 if __name__ == "__main__":
     cli()
-

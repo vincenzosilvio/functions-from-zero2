@@ -1,8 +1,12 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 import uvicorn
-from mylib.logistics import *
-import anyio
+from mylib.logistics import (
+    calculate_distance,
+    get_coordinates,
+    print_cities,
+    travel_time,
+)
 
 app = FastAPI()
 
@@ -43,10 +47,7 @@ async def get_distance(city1: City, city2: City):
 async def get_travel_time(city1: City, city2: City, speed: int = 60):
     """Get the travel time between two cities"""
 
-    return {
-        "travel_time": travel_time(city1.name, city2.name, speed)
-    }
-
+    return {"travel_time": travel_time(city1.name, city2.name, speed)}
 
 
 if __name__ == "__main__":

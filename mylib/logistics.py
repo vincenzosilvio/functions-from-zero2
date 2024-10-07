@@ -3,8 +3,6 @@ This module deals with logistics and calculates distance between two points
 and the time it takes to travel between two points and other logistics related 
 questions for a given speed
 """
-
-import geopy
 from geopy import distance
 
 # build a list of cities and their coordinates (10 cities in the USA)
@@ -74,5 +72,3 @@ def travel_time(city1, city2, speed=60):
     :return: float
     """
     return calculate_distance(get_coordinates(city1), get_coordinates(city2)) / speed
-
-
