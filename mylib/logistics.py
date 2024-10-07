@@ -4,6 +4,7 @@ and the time it takes to travel between two points and other logistics related
 questions for a given speed
 """
 
+import geopy
 from geopy import distance
 
 # build a list of cities and their coordinates (10 cities in the USA)
@@ -58,9 +59,8 @@ def print_cities():
     This function prints the list of cities
     :return: None
     """
-    for city in cities:
-        print(city)
-    return city[0]
+    # print only the keys of the cities
+    return list(cities.keys())
 
 
 # estimate the travel time between two cities by car
@@ -74,3 +74,5 @@ def travel_time(city1, city2, speed=60):
     :return: float
     """
     return calculate_distance(get_coordinates(city1), get_coordinates(city2)) / speed
+
+

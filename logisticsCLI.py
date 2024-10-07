@@ -4,6 +4,7 @@ from mylib.logistics import (
     cities,
     get_coordinates,
     travel_time,
+    print_cities,
 )
 import click
 
@@ -13,11 +14,11 @@ def cli():
     pass
 
 
-# build a click command to list cities'name
+# build a click command to list cities'name calling the print_cities function
 @cli.command("cities")
-def print_cities():
+def print_citiesCLI():
     """Print a list of cities"""
-    click.secho(f"{cities}", fg="green")
+    click.secho(f"{print_cities()}", fg="green")
 
 
 # build a click command
@@ -56,3 +57,4 @@ def travel(city1, city2, speed):
 # invoke the click group
 if __name__ == "__main__":
     cli()
+
