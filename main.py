@@ -8,6 +8,8 @@ from mylib.logistics import (
     travel_time,
 )
 
+from mylib.wiki import get_keywords
+
 app = FastAPI()
 
 
@@ -48,6 +50,14 @@ async def get_travel_time(city1: City, city2: City, speed: int = 60):
     """Get the travel time between two cities"""
 
     return {"travel_time": travel_time(city1.name, city2.name, speed)}
+
+
+# build a post method for getting the keywords of a wikipedia page
+@app.post("/keywords")
+async def get_wiki_keywords(topic: City):
+    """Get the keywords of a wikipedia page"""
+
+    return {"keywords": get_keywords(topic.name)}
 
 
 if __name__ == "__main__":
